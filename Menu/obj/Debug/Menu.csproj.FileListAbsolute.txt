@@ -1,6 +1,0 @@
-C:\Users\ARKADIUSZ\source\repos\GoodTechniquesCsharp\Menu\bin\Debug\Menu.exe.config
-C:\Users\ARKADIUSZ\source\repos\GoodTechniquesCsharp\Menu\bin\Debug\Menu.exe
-C:\Users\ARKADIUSZ\source\repos\GoodTechniquesCsharp\Menu\bin\Debug\Menu.pdb
-C:\Users\ARKADIUSZ\source\repos\GoodTechniquesCsharp\Menu\obj\Debug\Menu.csprojAssemblyReference.cache
-C:\Users\ARKADIUSZ\source\repos\GoodTechniquesCsharp\Menu\obj\Debug\Menu.exe
-C:\Users\ARKADIUSZ\source\repos\GoodTechniquesCsharp\Menu\obj\Debug\Menu.pdb
