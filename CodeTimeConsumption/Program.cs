@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Threading;
 
 namespace CodeTimeConsumption
 {
@@ -12,6 +13,11 @@ namespace CodeTimeConsumption
     {
         public static void Main(string[] args)
         {
+            Process.GetCurrentProcess().ProcessorAffinity = new IntPtr(2);
+            Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.High;
+            Thread.CurrentThread.Priority = ThreadPriority.Highest;
+            Console.SetBufferSize(Console.BufferWidth, 32766);
+
             //ViewHelper.AskForDoubleOptimised("write optimised");
             //TestStdDev();
             ViewHelperTimeImprovement();
@@ -55,39 +61,48 @@ namespace CodeTimeConsumption
             Stopwatch watch = new Stopwatch();
             ViewHelperData vhdata;
             var vhconst = new ViewHelperConstructor();
-            for (int i = 0; i < 2500; i++)
+
+            watch.Start();
+            while (watch.ElapsedMilliseconds < 1200)  // A Warmup of 1000-1500 mS                                 
+            {                                         // stabilizes the CPU cache and pipeline.
+                ViewHelper.AskForDoubleWhile("WARM UP");
+            }
+            watch.Stop();
+            watch.Reset();
+
+            for (int i = 0; i < 2000; i++)
             {
                 //Mean: 0,5192 Median: 0,37765
                 vhdata = new ViewHelperData();
                 watch.Start();
                 ViewHelper.AskForDoubleWhile("while");
                 watch.Stop();
-                triesData["UsingWhile"].Add(watch.Elapsed.TotalMilliseconds);
-                vhdata.UsingWhile = watch.Elapsed.TotalMilliseconds;
+                triesData["UsingWhile"].Add(watch.ElapsedTicks);
+                vhdata.UsingWhile = watch.ElapsedTicks;
                 watch.Reset();
 
                 //Mean: 0,4811 Median: 0,3746
                 watch.Start();
                 ViewHelper.AskForDouble("default");
                 watch.Stop();
-                triesData["UsingDoWhile"].Add(watch.Elapsed.TotalMilliseconds);
-                vhdata.UsingDoWhile = watch.Elapsed.TotalMilliseconds;
+                triesData["UsingDoWhile"].Add(watch.ElapsedTicks);
+                vhdata.UsingDoWhile = watch.ElapsedTicks;
                 watch.Reset();
 
                 //Mean: 0,4813 Median: 0,37515
                 watch.Start();
                 vhconst.AskForDouble("vhconst hello");
                 watch.Stop();
-                triesData["ViewHelper as an object"].Add(watch.Elapsed.TotalMilliseconds);
-                vhdata.ViewHelperAsAnObject = watch.Elapsed.TotalMilliseconds;
+                triesData["ViewHelper as an object"].Add(watch.ElapsedTicks);
+                vhdata.ViewHelperAsAnObject = watch.ElapsedTicks;
                 watch.Reset();
 
                 //Mean: 0,4360 Median: 0,3569
                 watch.Start();
                 ViewHelper.AskForDoubleBreakLoop("break loop!");
                 watch.Stop();
-                triesData["BreakLoop"].Add(watch.Elapsed.TotalMilliseconds);
-                vhdata.BreakLoop = watch.Elapsed.TotalMilliseconds;
+                triesData["BreakLoop"].Add(watch.ElapsedTicks);
+                vhdata.BreakLoop = watch.ElapsedTicks;
                 watch.Reset();
 
                 // What happened?
@@ -95,16 +110,16 @@ namespace CodeTimeConsumption
                 watch.Start();
                 ViewHelper.AskForDoubleTryParse("tryparse");
                 watch.Stop();
-                triesData["tryparse"].Add(watch.Elapsed.TotalMilliseconds);
-                vhdata.TryParse = watch.Elapsed.TotalMilliseconds;
+                triesData["tryparse"].Add(watch.ElapsedTicks);
+                vhdata.TryParse = watch.ElapsedTicks;
                 watch.Reset();
 
                 //Mean: 0,4446 Median: 0,3784
                 watch.Start();
                 ViewHelper.AskForDoubleOptimised("write optimised");
                 watch.Stop();
-                triesData["WriteFormatting"].Add(watch.Elapsed.TotalMilliseconds);
-                vhdata.WriteOptimised = watch.Elapsed.TotalMilliseconds;
+                triesData["WriteFormatting"].Add(watch.ElapsedTicks);
+                vhdata.WriteOptimised = watch.ElapsedTicks;
                 watch.Reset();
 
                 viewHelperData.Add(vhdata);
@@ -116,14 +131,14 @@ namespace CodeTimeConsumption
                 Console.WriteLine(outputFormat, element.Key, element.Value.Min(), element.Value.Average(),
                     StatisticsHelper.GetMedian(element.Value), StatisticsHelper.StdDev(element.Value), element.Value.Max());
             }
-            Console.WriteLine("Allocated memory: {0}kb", GC.GetTotalAllocatedBytes(true)/1024);
-            string filename = $"viewHelperImprovement_{DateTime.Now.Millisecond}.csv";
-            using (var writer = new StreamWriter(filename))
-            using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
-            {
-                csv.WriteRecords(viewHelperData);
-            }
-            Console.WriteLine("Data saved to: " + filename);
+            //Console.WriteLine("Allocated memory: {0}kb", GC.GetTotalAllocatedBytes(true)/1024);
+            //string filename = $"viewHelperImprovement_{DateTime.Now.Millisecond}.csv";
+            //using (var writer = new StreamWriter(filename))
+            //using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+            //{
+            //    csv.WriteRecords(viewHelperData);
+            //}
+            //Console.WriteLine("Data saved to: " + filename);
         }
 
         /// <summary>
