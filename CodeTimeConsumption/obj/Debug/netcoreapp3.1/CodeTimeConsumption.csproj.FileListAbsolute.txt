@@ -1,0 +1,13 @@
+C:\Users\PIOTR\Documents\Visual Studio Projects\CSharpGoodTechniques\CodeTimeConsumption\bin\Debug\netcoreapp3.1\CodeTimeConsumption.exe
+C:\Users\PIOTR\Documents\Visual Studio Projects\CSharpGoodTechniques\CodeTimeConsumption\bin\Debug\netcoreapp3.1\CodeTimeConsumption.deps.json
+C:\Users\PIOTR\Documents\Visual Studio Projects\CSharpGoodTechniques\CodeTimeConsumption\bin\Debug\netcoreapp3.1\CodeTimeConsumption.runtimeconfig.json
+C:\Users\PIOTR\Documents\Visual Studio Projects\CSharpGoodTechniques\CodeTimeConsumption\bin\Debug\netcoreapp3.1\CodeTimeConsumption.runtimeconfig.dev.json
+C:\Users\PIOTR\Documents\Visual Studio Projects\CSharpGoodTechniques\CodeTimeConsumption\bin\Debug\netcoreapp3.1\CodeTimeConsumption.dll
+C:\Users\PIOTR\Documents\Visual Studio Projects\CSharpGoodTechniques\CodeTimeConsumption\bin\Debug\netcoreapp3.1\CodeTimeConsumption.pdb
+C:\Users\PIOTR\Documents\Visual Studio Projects\CSharpGoodTechniques\CodeTimeConsumption\obj\Debug\netcoreapp3.1\CodeTimeConsumption.csprojAssemblyReference.cache
+C:\Users\PIOTR\Documents\Visual Studio Projects\CSharpGoodTechniques\CodeTimeConsumption\obj\Debug\netcoreapp3.1\CodeTimeConsumption.AssemblyInfoInputs.cache
+C:\Users\PIOTR\Documents\Visual Studio Projects\CSharpGoodTechniques\CodeTimeConsumption\obj\Debug\netcoreapp3.1\CodeTimeConsumption.AssemblyInfo.cs
+C:\Users\PIOTR\Documents\Visual Studio Projects\CSharpGoodTechniques\CodeTimeConsumption\obj\Debug\netcoreapp3.1\CodeTimeConsumption.dll
+C:\Users\PIOTR\Documents\Visual Studio Projects\CSharpGoodTechniques\CodeTimeConsumption\obj\Debug\netcoreapp3.1\CodeTimeConsumption.pdb
+C:\Users\PIOTR\Documents\Visual Studio Projects\CSharpGoodTechniques\CodeTimeConsumption\bin\Debug\netcoreapp3.1\CsvHelper.dll
+C:\Users\PIOTR\Documents\Visual Studio Projects\CSharpGoodTechniques\CodeTimeConsumption\obj\Debug\netcoreapp3.1\CodeTimeConsumption.csproj.CopyComplete

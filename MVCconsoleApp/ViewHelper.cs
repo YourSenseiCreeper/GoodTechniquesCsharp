@@ -1,9 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace Menu
+namespace MVCconsoleApp
 {
     public static class ViewHelper
     {
+        public static int AskForInt(string message)
+        {
+            return 0;
+        }
+
+        public static string AskForString(string message)
+        {
+            return "";
+        }
         public static double AskForDouble(string message, bool clear = true)
         {
             string answer;

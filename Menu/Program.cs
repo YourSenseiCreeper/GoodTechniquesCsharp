@@ -35,7 +35,7 @@ namespace Menu
                 keys.Add($"{index++}. {entry.Key}");
                 values.Add(entry.Value);
             }
-            while (!exit)
+            do
             {
                 Console.Clear();
                 Console.WriteLine(header);
@@ -44,10 +44,10 @@ namespace Menu
                 if (input > 0 && input <= keyValues.Count)
                 {
                     if (input == keyValues.Count) exit = true;
-                    else values[((int) input) - 1].DynamicInvoke();
+                    else values[((int)input) - 1].DynamicInvoke();
                 }
                 else ViewHelper.WriteAndWait($"Nie ma opcji: {input}!");
-            }
+            } while (!exit);
         }
     }
 }

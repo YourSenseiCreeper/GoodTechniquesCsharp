@@ -1,0 +1,11 @@
+C:\Users\PIOTR\Documents\Visual Studio Projects\CSharpGoodTechniques\MVCconsoleApp\bin\Debug\netcoreapp3.1\MVCconsoleApp.exe
+C:\Users\PIOTR\Documents\Visual Studio Projects\CSharpGoodTechniques\MVCconsoleApp\bin\Debug\netcoreapp3.1\MVCconsoleApp.deps.json
+C:\Users\PIOTR\Documents\Visual Studio Projects\CSharpGoodTechniques\MVCconsoleApp\bin\Debug\netcoreapp3.1\MVCconsoleApp.runtimeconfig.json
+C:\Users\PIOTR\Documents\Visual Studio Projects\CSharpGoodTechniques\MVCconsoleApp\bin\Debug\netcoreapp3.1\MVCconsoleApp.runtimeconfig.dev.json
+C:\Users\PIOTR\Documents\Visual Studio Projects\CSharpGoodTechniques\MVCconsoleApp\bin\Debug\netcoreapp3.1\MVCconsoleApp.dll
+C:\Users\PIOTR\Documents\Visual Studio Projects\CSharpGoodTechniques\MVCconsoleApp\bin\Debug\netcoreapp3.1\MVCconsoleApp.pdb
+C:\Users\PIOTR\Documents\Visual Studio Projects\CSharpGoodTechniques\MVCconsoleApp\obj\Debug\netcoreapp3.1\MVCconsoleApp.csprojAssemblyReference.cache
+C:\Users\PIOTR\Documents\Visual Studio Projects\CSharpGoodTechniques\MVCconsoleApp\obj\Debug\netcoreapp3.1\MVCconsoleApp.AssemblyInfoInputs.cache
+C:\Users\PIOTR\Documents\Visual Studio Projects\CSharpGoodTechniques\MVCconsoleApp\obj\Debug\netcoreapp3.1\MVCconsoleApp.AssemblyInfo.cs
+C:\Users\PIOTR\Documents\Visual Studio Projects\CSharpGoodTechniques\MVCconsoleApp\obj\Debug\netcoreapp3.1\MVCconsoleApp.dll
+C:\Users\PIOTR\Documents\Visual Studio Projects\CSharpGoodTechniques\MVCconsoleApp\obj\Debug\netcoreapp3.1\MVCconsoleApp.pdb
