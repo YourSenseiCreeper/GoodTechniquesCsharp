@@ -12,9 +12,9 @@ namespace CodeTimeConsumption
     {
         public static void Main(string[] args)
         {
-            ViewHelper.AskForDoubleOptimised("write optimised");
+            //ViewHelper.AskForDoubleOptimised("write optimised");
             //TestStdDev();
-            //ViewHelperTimeImprovement();
+            ViewHelperTimeImprovement();
             //DollarFormattingTest();
             //ViewHelperTest();
             Console.ReadLine();
@@ -47,8 +47,8 @@ namespace CodeTimeConsumption
                 { "UsingWhile", new List<double>() },
                 { "UsingDoWhile", new List<double>() },
                 { "ViewHelper as an object", new List<double>() },
-                { "NoClearArg", new List<double>() },
                 { "BreakLoop", new List<double>() },
+                { "tryparse", new List<double>() },
                 { "WriteFormatting", new List<double>() }
             };
             List<ViewHelperData> viewHelperData = new List<ViewHelperData>();
@@ -57,6 +57,7 @@ namespace CodeTimeConsumption
             var vhconst = new ViewHelperConstructor();
             for (int i = 0; i < 2500; i++)
             {
+                //Mean: 0,5192 Median: 0,37765
                 vhdata = new ViewHelperData();
                 watch.Start();
                 ViewHelper.AskForDoubleWhile("while");
@@ -65,6 +66,7 @@ namespace CodeTimeConsumption
                 vhdata.UsingWhile = watch.Elapsed.TotalMilliseconds;
                 watch.Reset();
 
+                //Mean: 0,4811 Median: 0,3746
                 watch.Start();
                 ViewHelper.AskForDouble("default");
                 watch.Stop();
@@ -72,28 +74,32 @@ namespace CodeTimeConsumption
                 vhdata.UsingDoWhile = watch.Elapsed.TotalMilliseconds;
                 watch.Reset();
 
+                //Mean: 0,4813 Median: 0,37515
                 watch.Start();
                 vhconst.AskForDouble("vhconst hello");
                 watch.Stop();
                 triesData["ViewHelper as an object"].Add(watch.Elapsed.TotalMilliseconds);
                 vhdata.ViewHelperAsAnObject = watch.Elapsed.TotalMilliseconds;
                 watch.Reset();
-                
 
+                //Mean: 0,4360 Median: 0,3569
                 watch.Start();
-                ViewHelper.AskForDoubleNoClearArg("no clear!");
-                watch.Stop();
-                triesData["NoClearArg"].Add(watch.Elapsed.TotalMilliseconds);
-                vhdata.NoClearArg = watch.Elapsed.TotalMilliseconds;
-                watch.Reset();
-
-                watch.Start();
-                ViewHelper.AskForDoubleNoClearArgBreakLoop("break loop");
+                ViewHelper.AskForDoubleBreakLoop("break loop!");
                 watch.Stop();
                 triesData["BreakLoop"].Add(watch.Elapsed.TotalMilliseconds);
                 vhdata.BreakLoop = watch.Elapsed.TotalMilliseconds;
                 watch.Reset();
 
+                // What happened?
+                //Mean: 0,1703 Median: 0,0531
+                watch.Start();
+                ViewHelper.AskForDoubleTryParse("tryparse");
+                watch.Stop();
+                triesData["tryparse"].Add(watch.Elapsed.TotalMilliseconds);
+                vhdata.TryParse = watch.Elapsed.TotalMilliseconds;
+                watch.Reset();
+
+                //Mean: 0,4446 Median: 0,3784
                 watch.Start();
                 ViewHelper.AskForDoubleOptimised("write optimised");
                 watch.Stop();
@@ -246,8 +252,8 @@ namespace CodeTimeConsumption
         public double UsingWhile { get; set; }
         public double UsingDoWhile { get; set; }
         public double ViewHelperAsAnObject { get; set; }
-        public double NoClearArg { get; set; }
         public double BreakLoop { get; set; }
+        public double TryParse { get; set; }
         public double WriteOptimised { get; set; }
     }
 }

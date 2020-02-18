@@ -45,7 +45,7 @@ namespace CodeTimeConsumption
             } while (!answerOk);
             return result;
         }
-        public static double AskForDoubleNoClearArg(string message)
+        public static double AskForDoubleBreakLoop(string message)
         {
             bool answerOk = false;
             double result = 0;
@@ -54,32 +54,34 @@ namespace CodeTimeConsumption
             {
                 Console.Write(message);
                 answer = "13"; //Console.ReadLine();
-                try { result = Convert.ToDouble(answer); answerOk = true; }
+                try { result = Convert.ToDouble(answer); break; }
                 catch (FormatException) { WriteAndWait($"{answer} nie jest liczbą!"); }
             } while (!answerOk);
             return result;
         }
 
-        public static double AskForDoubleNoClearArgBreakLoop(string message)
+        public static double AskForDoubleTryParse(string message)
         {
+            string answer;
             do
             {
                 Console.WriteLine(message);
-                try { return Convert.ToDouble("13"); }
-                catch (FormatException) { Console.WriteLine($"{"13"} nie jest liczbą!"); }
+                answer = "13";
+                if (double.TryParse(answer, out double result)) return result;
+                else { Console.WriteLine($"{answer} nie jest liczbą!"); }
             } while (true);
         }
 
         public static double AskForDoubleOptimised(string message)
         {
-            string input;
+            string answer;
             do
             {
                 Console.WriteLine(message);
-                input = Console.ReadLine();
-                if (double.TryParse(input, out double result)) return result;
+                answer = "13";
+                if (double.TryParse(answer, out double result)) return result;
                 else {
-                    Console.WriteLine("{0} nie jest liczbą!", input);
+                    Console.WriteLine("{0} nie jest liczbą!", answer);
                     Console.ReadLine();
                 }
             } while (true);
